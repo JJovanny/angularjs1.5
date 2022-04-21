@@ -1,0 +1,64 @@
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="btn btn-outline-primary btn-sm btn-light border-bottom" aria-current="page"  data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"><i class="fa fa-plus"></i>&nbsp;Producto</a>
+    </li>
+    <li class="nav-item" ng-controller="productosController as vm">
+      <button class=" btn btn-outline-danger btn-sm btn-light border-bottom" aria-current="page" ng-click="vm.GenerarPdfProductos()">PDF</button>
+    </li>
+  </ul>
+
+<div ng-controller="productosController as vm">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <div class="form-group">
+                <label for="exampleInputPassword1">Nombre</label>
+                <input type="text" class="form-control" ng-model="vm.nombre" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <br>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Precio</label>
+                <input type="number" class="form-control" ng-model="vm.precio" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <br>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Stock</label>
+                <input type="number" class="form-control" ng-model="vm.stock" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <br>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Categoria</label>
+                <br>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" ng-model="vm.categoria">
+                    <option ng-repeat="categoria in vm.categorias" value="{{categoria.id}}">{{categoria.tipoCategoria}}</option>
+                  </select>
+              </div>
+
+              <br>
+              <div class="form-group">
+                <label for="exampleFormControlFile1">Foto del producto</label>
+                <input type="file" class="form-control-file" id="fotoProducto" ng-model="vm.fotoProducto" id="exampleFormControlFile1">
+              </div>
+
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" ng-click="vm.crearProducto()">Crear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

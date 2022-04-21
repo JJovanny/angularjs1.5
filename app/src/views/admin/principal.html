@@ -1,0 +1,81 @@
+<div ng-include="'./app/src/views/templates/admin/header.html'"></div>
+<title>Shopping - Principal</title>
+
+<style>
+
+body{
+        background: #ffe259;
+        background: linear-gradient(to right, rgb(173, 196, 223), white );
+   
+         }
+
+</style>
+
+
+<body>
+
+<div ng-controller="datosController as vm" class="container d-flex">
+
+<div class="card border-danger mb-3 col-4" >
+    <div class="card-header text-center border-danger text-danger">Productos en total</div>
+    <div class="card-body">
+      <h1 class="text-center fs-1">{{vm.productos.length}}</h1>
+    </div>
+  </div>
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+    <!-- <div class="card mb-3 col-4 border-primary"  style="max-width: 21rem;">
+        <div class="card-header text-center border-primary text-primary">Usuarios registrados</div>
+        <div class="card-body">
+          <h1 class="text-center fs-1">{{vm.usuarios.length}}</h1>
+        </div>
+      </div> -->
+  
+      <div class="card border-primary mb-3 col-4"  style="max-width: 21rem;">
+        <div class="card-header text-center border-primary text-primary">Usuarios registrados</div>
+        <div class="card-body">
+
+          <table class="table table-sm">
+           <thead>
+             <tr>
+               <th class="text-center">Usuarios</th>
+               <th class="text-center">Admins</th>
+               <th class="text-center">Clientes</th>
+               <th class="text-center">Empleados</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td class="text-center">{{vm.usuarios.length}}</td>
+               <td class="text-center">{{vm.roles.rolAdmin.length}}</td>
+               <td class="text-center">{{vm.roles.rolCliente.length}}</td>
+               <td class="text-center">{{vm.roles.rolEmpleado.length}}</td>
+             </tr>
+           </tbody>
+          </table>
+         
+      </div>
+    </div>
+
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+
+        <div class="card border-success mb-3 col-4" >
+            <div class="card-header text-center border-success text-success">Ventas totales en el dia</div>
+            <div class="card-body">
+              <h1 class="text-center fs-1">{{vm.ventas.length}}</h1>
+            </div>
+          </div> 
+
+</div>
+
+
+
+
+</body>

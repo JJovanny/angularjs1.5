@@ -1,0 +1,20 @@
+
+      body{
+        background: #ffe259;
+        background: linear-gradient(to right, rgb(255, 197, 197), white );
+   
+         }
+
+         .bg{
+            /* #ffa751, #ffe259 */
+        background-image:url("/app/src/assets/images/carrito5.jpg");
+        background-position: center center;
+        background-size:cover ;
+        
+        }
+
+        .boton{
+
+
+          background: linear-gradient(to right, rgb(250, 118, 118), rgb(252, 82, 82) ); 
+        }

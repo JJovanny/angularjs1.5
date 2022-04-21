@@ -1,0 +1,49 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div ng-controller="LoginController as vm"> 
+<div class="container w-75 bg-white mt-5 rounded shadow mb-5">
+    <div class="row aling-items-stretch">
+    
+    <div class="col bg d-none d-lg-block col-md-6 col-lg-6 col-xl-5">
+    
+    
+    </div>
+    <div class="col bg-white p-4  rounded-end">
+        
+        <h2 class="fw-bold text-center py-5">Bienvenido </h2>
+    
+        <form class="login-form" name="formLogin" id="formLogin">
+    
+       <div class="mb-4">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" class="form-control" name="username" id="username" ng-model="vm.username">   
+</div>
+    
+    <div class="mb-4">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" ng-model="vm.password" id="password" autocomplete="off">
+    </div>
+    
+    <div class="d-grid">
+    <button type="submit"  class="btn boton text-white" value="Ingresar" ng-click="vm.Login()">Iniciar Sesion</button>
+   <br>
+    <span>¿No tienes una cuenta? &nbsp;<a href="#Registrarse" class="text-info">Registrate</a></span>
+    </div>
+    
+    
+        </form>
+    
+    
+    </div>
+    
+    </div>
+    
+    </div>
+</div>
+
+

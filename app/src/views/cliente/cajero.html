@@ -1,0 +1,149 @@
+<div ng-include="'./app/src/views/templates/cliente/header.html'"></div>
+
+<br>
+<div class="sticky-top">
+  <div class="col-2 ">
+    <button class="btn btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2"
+      aria-expanded="false" aria-controls="multiCollapseExample2"> <i class="fas fa-shopping-cart"></i></button>
+  </div>
+</div>
+
+<!-- <div ng-include="'./app/src/views/templates/cliente/carrito/carrito.html'"></div> -->
+
+<div ng-controller="carritoController as lista">
+
+
+  <div class="row">
+    <div class="col-sm-4 col-sm-8 col-md-8 col-md-4">
+      <div class="collapse multi-collapse " id="multiCollapseExample2">
+        <div class="card card-body">
+          <div>
+            <!-- <input type="datetime" ng-model="lista.fecha" class="form-control-sm small" id="fecha" required
+               value=""> -->
+
+            <button type="button" class="btn  btn-sm btn-success" id="botonfecha" ng-model="fecha_detalle"
+              ng-click="lista.DetalleCompra()">Iniciar Compra</button>
+          </div>
+
+          <div style="overflow-y:scroll; overflow-x:hidden; height:130px; width:100%;">
+
+            <table class="table small table-responsive" style="border-color: brown;">
+              <thead class="bg-white">
+                <tr>
+                  <td>Id</td>
+                  <td>Producto</td>
+                  <td>Precio</td>
+                  <td>Cantidad</td>
+                  <td>Sub total</td>
+                  <td>Accion</td>
+
+                </tr>
+              </thead>
+
+              <tbody class="bg-white">
+
+                <tr ng-repeat="compra in lista.carrito">
+                  <td class="text-dark">{{compra.id}}</td>
+                  <td class="text-dark">{{compra.nombre}}</td>
+                  <td class="text-dark">${{compra.precio}}</td>
+                  <td class="text-dark">{{compra.cantidad}}</td>
+                  <td class="text-dark">${{compra.total}}</td>
+                  <td class="text-dark small"> <button class="btn btn-danger btn-sm text-small"
+                      ng-click="lista.EliminarCompra(compra.id)">Eliminar</button> </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+
+
+          <div class="d-flex col-sm-12">
+            <div class="col-2">
+              <button type="button" class="btn btn-sm btn-success small" id="finalizarcompra"
+                ng-click="lista.TerminarCompra()" ng-disabled="!lista.btnFinalizar">
+                Finalizar
+              </button>
+            </div>
+
+            <div class="col-2">
+              <button type="button" class="btn btn-sm btn-danger small text-white" id="EliminarCompra"
+                ng-click="lista.EliminarDetalleCompra()" ng-disabled="!lista.btnFinalizar">
+                Elimnar
+              </button>
+            </div>
+
+            <div class="col-3">
+              &nbsp; <button class="btn btn-sm text-white btn-primary">Total:&nbsp;${{lista.getTotalCarrito()}} </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--  carrito -->
+
+
+  <br>
+  <br>
+  <br>
+
+
+  <div class="container d-flex flex-wrap">
+    <div ng-repeat="producto in lista.productos" class="row">
+
+      <div class="col-sm-12 row mb-4 text-center rounded">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">{{producto.nombre}}</h4>
+            </div>
+            <div class="card-body">
+              <h2 class="card-title pricing-card-title"> <small class="text-muted fw-light">Precio
+                  :&nbsp;</small>${{producto.precio}}</h2>
+
+              <center>
+                <div class="form-group">
+                  <img src="{{producto.foto}}" alt="" width="80%" height="150px" id="foto">
+                </div>
+              </center>
+              <br>
+
+              <div class="d-flex form-group">
+                <input type="number" class="col-5 input-group-sm" ng-model="producto.cantidadAComprar"
+                  placeholder="Cantidad" id="cantidadAComprar"> &nbsp;
+                <button type="button" ng-disabled="!lista.validar" class="w-100 btn btn-sm btn-outline-success"
+                  ng-model="lista.validar" ng-click="lista.addCarrito(producto)"><i
+                    class="fas fa-shopping-cart"></i></button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+<div ng-if="lista.productos.length == 0">
+
+<span class="text-center">No hay productos a la venta por el momento</span>
+
+</div>
+
+
+
+    <!-- ng-controller -->
+  </div>
+
+  <br>
+  <br>
+
+
+
+  <div ng-include="'./app/src/views/templates/footer.html'"></div>

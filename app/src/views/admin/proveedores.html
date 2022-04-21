@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="./app/src/assets/css/panelAdmin.css">
+
+<div ng-include="'./app/src/views/templates/admin/header.html'"></div>
+
+
+<div ng-controller="proveedorController as vm">
+
+
+    <div class="container">  
+
+
+    
+        <div class="bg-primary">
+          <h1 class="text-center text-white">Proveedores</h1>
+      </div>
+    
+      <br>
+      
+      <div ng-include="'./app/src/views/templates/admin/modal/proveedoresModal.html'"></div>
+    
+      <br>
+    
+    
+    <table class="table table-striped table-hover table-responsive shadow table-bordered">
+        <thead class="bg-white"> 
+    <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Rif</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Acciones</th>
+    
+    </tr>   
+    </thead>
+    
+    <tbody class="bg-white"> 
+    <tr ng-repeat="proveedor in vm.proveedores">
+      <td>{{proveedor.Id}}</td>
+      <td>{{proveedor.Rif}}</td> 
+      <td>{{proveedor.Nombres}}</td>
+      <td>{{proveedor.Apellidos}}</td>
+      <td>{{proveedor.Empresa}}</td>
+      <td>{{proveedor.Direccion}}</td>
+      <td>{{proveedor.Telefono}}</td>
+      <td><button class="btn btn-sm btn-danger" ng-click="vm.EliminarProveedor(proveedor.Id)">Elimnar</button>
+        <button class="btn btn-sm btn-primary" ng-click="vm.getProveedor(proveedor)" data-bs-toggle="modal" data-bs-target="#ProveedorEditar">Editar</button>
+    </td>
+    
+     </tr>
+    </tbody>
+    </table>
+    
+    <div ng-if="vm.proveedores.length == 0">
+      
+      <th><span class="text-danger fs-3">No hay proveedores registrados por el momento</span></th>
+     
+     </div>
+
+
+</div>
+
+
+<div ng-include="'./app/src/views/templates/footer.html'"></div>
+

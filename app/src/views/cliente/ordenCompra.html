@@ -1,0 +1,119 @@
+<div ng-include="'./app/src/views/templates/cliente/header.html'"></div>
+<!-- <div ng-include="'./app/src/views/templates/modal/modalDetalleCompra.html'"></div> -->
+
+
+<body>
+
+
+  <div ng-controller="comprobanteController as lista">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Id</label>
+              <input type="email" class="form-control" ng-model="lista.id" value="{{lista.id}}" id="exampleInputEmail1"
+                readonly>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Sub Total</label>
+              <input type="text" class="form-control" ng-model="lista.subtotal" value="${{lista.subtotal}}.00"
+                aria-label="Username" aria-describedby="basic-addon1" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Comprobante de pago</label>
+              <input type="file" class="form-control-file" id="file" ng-model="lista.comprobante">
+            </div>
+<!--         
+            <div class="form-group item-center" ng-if="lista.compro">
+              <img id="comprobante" ng-model="lista.compro" src="{{lista.compro}}" width="100%" height="350px">
+            </div>
+         -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary"
+              ng-click="lista.enviarComprobante(lista.id,lista.comprobante)">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <!-- justify-content-center -->
+    <!-- d-flex justify-content-center -->
+    <!-- <div class="justify-content-center row align-items-center">  -->
+    <div ng-repeat="detalleCompras in lista.detalleCompras" class="justify-content-center row align-items-center">
+
+      <div class="row col-sm-6 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+
+              <button type="button" class="btn btn-danger btn-sm" style=" float: right;"
+                ng-click="lista.eliminarDetalleCompra(detalleCompras.id,detalleCompras)"
+                ng-model="detalleCompras.botonElimnar" ng-disabled="!detalleCompras.botonElimnar"><i
+                  class="fas fa-trash-alt"></i></button>
+
+              <h4 class="my-0 fw-normal">Compra N° {{detalleCompras.id}}</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title"> <small class="text-muted fw-light">Total
+                  :&nbsp;</small>${{detalleCompras.subtotal}}.00</h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li><small class="text-muted fw-light">Fecha de Compra :&nbsp;</small> &nbsp;{{detalleCompras.fecha}}
+                </li>
+                <!-- <li>{{detalleCompras.archivo}}</li> -->
+              </ul>                                          
+               <!-- ng-style="{'background-color' : detalleCompras.texto === 'Enviado' ? 'green' : 'primary' }"  -->
+              <button type="button" class="w-100 btn btn-lg " ng-class="{'btn-success' : detalleCompras.texto === 'Enviado', 'btn-outline-primary': detalleCompras.texto === 'Enviar Comprobante'}"
+                ng-click="lista.getDetalleCompra(detalleCompras)" data-bs-toggle="modal" ng-disabled="!detalleCompras.enviarComprobante" data-bs-target="#exampleModal"
+                ng-model="detalleCompras.enviarComprobante"
+                id="{{detalleCompras.id}}btnsend">
+                <p ng-model="detalleCompras.texto" id="{{detalleCompras.id}}texto">{{detalleCompras.texto}}</p>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- </div> -->
+
+
+      <!-- ng-disabled="!detalleCompras.enviarComprobante"  -->
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- </div> -->
+
+
+</body>
+
+
+<div ng-include="'./app/src/views/templates/footer.html'"></div>

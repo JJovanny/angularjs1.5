@@ -1,0 +1,36 @@
+<div class="modal fade" tabindex="-1"  aria-hidden="true"> 
+    <div id="containerPdfProductos">
+  <!-- estos divs no se eliminan -->
+
+  
+<table>
+    <thead> 
+<tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Categoria</th>
+
+</tr>   
+</thead>
+
+<tbody > 
+<tr ng-repeat="producto in vm.productos">
+  <td>{{producto.id}}</td>
+  <td>{{producto.nombre}}</td> 
+  <td>{{producto.precio}}</td>
+  <td>{{producto.stock}}</td>
+  <td>{{producto.categoriaId}}</td>
+  
+ </tr>
+</tbody>
+</table>
+
+
+
+        <!-- estos divs no se eliminan -->
+    </div>
+  </div>
+
+  

@@ -1,0 +1,158 @@
+<br>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="btn btn-outline-primary btn-sm btn-light border-bottom" aria-current="page" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" href="#"> <i class="fa fa-plus"></i>&nbsp;Usuario</a>
+    </li>
+</ul>
+
+<div ng-controller="usuariosController as vm">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Nuevo Usuario</h5>
+                    <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Nombres</label>
+                        <input type="text" class="form-control" ng-model="vm.nombres"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Apellidos</label>
+                        <input type="text" class="form-control" ng-model="vm.apellidos" 
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Direccion</label>
+                        <input type="text" class="form-control" ng-model="vm.direccion"
+                            aria-describedby="basic-addon1">
+                    </div>
+
+                    <br>
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Nombre de usuario</label>
+                        <input type="text" class="form-control" ng-model="vm.nombreUsuario" 
+                            aria-describedby="basic-addon1" autocomplete="off">
+                    </div>
+                    <br>
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Contraseña</label>
+                        <input type="password" class="form-control" ng-model="vm.password" 
+                            aria-describedby="basic-addon1" autocomplete="new-password">
+                    </div>
+
+                    <br>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Rol</label>
+                      <br>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="roles" ng-model="vm.rol">
+                         <option ng-repeat="rol in vm.roles" value="{{rol.Id}}">{{rol.Tipo}}</option> 
+                        </select>
+                    </div>
+      
+                    <br>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Foto del Usuario</label>
+                        <input type="file" class="form-control-file" id="fotoUsuario" ng-model="vm.fotoUsuario" 
+                            id="exampleFormControlFile1">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" ng-click="vm.crearUsuario()">Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div ng-controller="usuariosController as vm"> 
+
+    <div class="modal fade" id="EditarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Editar Usuario</h5>
+                    <button type="button" class="btn-close btn-light" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Id</label>
+                        <input type="text" readonly class="form-control" id="idEditar" ng-model="vm.idUsuario" 
+                            aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Nombres</label>
+                        <input type="text" class="form-control" id="nombreEditar"  ng-model="vm.nombreEditar"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Apellidos</label>
+                        <input type="text" class="form-control" ng-model="vm.apellidosEditar" id="apellidosEditar"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Direccion</label>
+                        <input type="text" class="form-control" ng-model="vm.direccionEditar" id="direccionEditar"
+                            aria-describedby="basic-addon1">
+                    </div>
+
+                    <br>
+                    <div class="form-group col-12">
+                        <label for="exampleInputPassword1">Nombre de usuario</label>
+                        <input type="text" class="form-control" ng-model="vm.nombreUsuarioEditar" id="nombreUsuarioEditar"
+                            aria-describedby="basic-addon1" autocomplete="off">
+                    </div>
+                   
+                    <br>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Rol</label>
+                      <br>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="" ng-model="vm.rolEditar">
+                         <option ng-repeat="rol in vm.roles" value="{{rol.Id}}">{{rol.Tipo}}</option> 
+                        </select>
+                    </div>
+      
+                    <br>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Foto del Usuario</label>
+                        <input type="file" class="form-control-file" id="fotoUsuarioEditar" ng-model="vm.fotoUsuarioEditar"
+                            id="exampleFormControlFile1">
+                    </div>
+
+                    <center>
+                        
+                        <div class="form-group">
+                          <img src="{{vm.imagenEditar}}" alt="" width="100%" height="500px" id="comprobante" ng-model="vm.imagenEditar">
+                        </div>
+                      </center>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" ng-click="vm.EnviarUsuarioEditado()">Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

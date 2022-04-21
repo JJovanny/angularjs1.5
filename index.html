@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./app/src/assets/bootstrap/bootstrap.min.css"> 
+    <link rel="stylesheet" href="./app/src/assets/css/index.css">
+    <link rel="stylesheet" href="./app/src/assets/css/productos.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./app/src/assets/css/admin.css">
+  </head>
+<body>
+
+    <title>Shopping - login</title>
+  
+
+    <div ng-view></div>
+
+    <!-- Run App : python -m http.server-->
+
+   <!-- Libraries -->
+   <script src="./app/src/assets/js/jquery/jquery-1.7.1.js"></script>  
+   <script src="./app/src/assets/js/angular/angular.min.js"></script>
+   <script src="./app/src/assets/js/angular/angular-route.min.js"></script>
+   <script src="./app/src/assets/js/angular/angular-resource.min.js"></script>
+   <script src="./app/src/assets/js/angular/angular-animate.min.js"></script>
+   <script src="./app/src/assets/js/angular/angular-cookies.min.js"></script>
+   <script src="./app/src/assets/js/bootstrap/bootstrap.min.js"></script>  
+   <script src="./app/src/assets/js/jsPdf/jspdf.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js" integrity="sha512-NWK/s2RcUO/6cGrckJAo9313PVqX/cWmWSLIPU4as7H0Xm6mzhcuYrjtxlsmqy8Xt2gmCCQhcENKuX+R4Il/OA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+   <script src="./app/src/assets/js/moment/moment.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js" integrity="sha512-/uxeq6VcJ+do+PtGgWZwRL/Z63r53cK6yek3NzvQwce6aCeheKRD59IuRsEFuNU8b0B/lZ6fUx1fncf0wMIm5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+   <script src="./app/src/assets/js/localStorage/localStorage.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+
+   <!-- --------------------------------APP ---------------------------------- -->
+   <script src="./app/src/app.js"></script>
+
+
+
+   <!-- login -->
+   <script src="./app/src/controller/login.js"></script>
+   <script src="./app/src/services/login.js"></script>
+   
+  
+
+                           <!-- CLIENTE -->
+    <!-- ordenCompra -->
+    <script src="./app/src/controller/cliente/comprobanteController.js"></script>
+    <script src="./app/src/services/cliente/comprobanteService.js"></script>
+
+    <!-- Productos && compras -->
+    <script src="./app/src/controller/cliente/carritoController.js"></script>
+    <script src="./app/src/services/cliente/carritoService.js"></script>
+
+    <!-- Registrar usuario -->
+    <script src="./app/src/controller/cliente/registrarUsuarioController.js"></script>
+    <script src="./app/src/services/cliente/registrarUsuarioService.js"></script>
+
+
+
+                            <!-- ADMIN -->
+
+    <script src="./app/src/controller/admin/datosController.js"></script>
+
+    <script src="./app/src/controller/admin/verificarVentaController.js"></script>
+    <script src="./app/src/services/admin/verificarVentaService.js"></script>
+
+                           <!-- Productos -->
+    <script src="./app/src/controller/admin/productosController.js"></script>
+    <script src="./app/src/services/admin/productosService.js"></script>
+    <script src="./app/src/services/admin/categoriaService.js"></script>
+
+                           <!-- Usuarios  -->
+    <script src="./app/src/controller/admin/usuariosController.js"></script>
+    <script src="./app/src/services/admin/usuariosService.js"></script>
+    <script src="./app/src/services/admin/rolesService.js"></script>
+
+                           <!-- Proveedores -->
+    <script src="./app/src/controller/admin/proveedorController.js"></script>
+    <script src="./app/src/services/admin/proveedorService.js"></script>
+
+
+
+</body>
+</html>

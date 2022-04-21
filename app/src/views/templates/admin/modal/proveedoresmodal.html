@@ -1,0 +1,124 @@
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="btn btn-outline-primary btn-sm btn-light border-bottom" aria-current="page"  data-bs-toggle="modal" data-bs-target="#ProveedorCrear" href="#"><i class="fa fa-plus"></i>&nbsp;Proveedor</a>
+    </li>
+    <li class="nav-item" ng-controller="productosController as vm">
+      <button class=" btn btn-outline-danger btn-sm btn-light border-bottom" aria-current="page" ng-click="vm.GenerarPdfProductos()">PDF</button>
+    </li>
+  </ul>
+
+<div ng-controller="proveedorController as vm">
+  <!-- Modal -->
+  <div class="modal fade" id="ProveedorCrear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h5 class="modal-title text-white text-center" id="exampleModalLabel">Nuevo Proveedor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="exampleInputPassword1">Rif</label>
+                <input type="number" class="form-control" ng-model="vm.Rif" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Nombres</label>
+                <input type="text" class="form-control" ng-model="vm.Nombres" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <br>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Apellidos</label>
+                <input type="text" class="form-control" ng-model="vm.Apellidos" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <br>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Empresa</label>
+                <input type="text" class="form-control" ng-model="vm.Empresa" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <br>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Direccion</label>
+                <input type="text" class="form-control" ng-model="vm.Direccion" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <br>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Telefono</label>
+                <input type="number" class="form-control" ng-model="vm.Telefono" value="" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" ng-click="vm.crearProveedor()">Crear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- EDITAR PROVEEDOR -->
+
+
+<div class="modal fade" id="ProveedorEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-white text-center" id="exampleModalLabel">Editar Proveedor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Id</label>
+          <input type="number" class="form-control" id="idProveedor" aria-label="Username" readonly aria-describedby="basic-addon1">
+        </div>
+
+          <div class="form-group">
+              <label for="exampleInputPassword1">Rif</label>
+              <input type="number" class="form-control" id="EditarRif" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+          <div class="form-group">
+              <label for="exampleInputPassword1">Nombres</label>
+              <input type="text" class="form-control" id="EditarNombres" value="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <br>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Apellidos</label>
+              <input type="text" class="form-control" id="EditarApellidos" value="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <br>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Empresa</label>
+              <input type="text" class="form-control" id="EditarEmpresa" value="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <br>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Direccion</label>
+              <input type="text" class="form-control" id="EditarDireccion" value="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Telefono</label>
+              <input type="number" class="form-control" id="EditarTelefono" value="" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" ng-click="vm.EditarProveedor()">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>

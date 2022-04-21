@@ -1,0 +1,51 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div ng-controller="registrarUsuarioController as vm"> 
+
+<div class="container col-5 bg-white rounded-top shadow mb-5" style=" border-bottom-color: rgb(108, 218, 238); border-bottom-size: 1px; border-bottom-style: solid;"> 
+<br>
+  <a href="#/" class="text-info">Volver a Inicio <i class="fa fa-undo" aria-hidden="true"></i></a>
+
+<br>
+<br>
+            <div class="form-group col-12">
+                <label for="exampleInputPassword1">Nombres</label>
+                <input type="text" class="form-control" ng-model="vm.nombres" value="" aria-describedby="basic-addon1">
+              </div>
+<br>
+              <div class="form-group col-12">
+                <label for="exampleInputPassword1">Apellidos</label>
+                <input type="text" class="form-control" ng-model="vm.apellidos" value="" aria-describedby="basic-addon1">
+              </div>
+<br>
+              <div class="form-group col-12">
+                <label for="exampleInputPassword1">Direccion</label>
+                <input type="text" class="form-control" ng-model="vm.direccion" value="" aria-describedby="basic-addon1">
+              </div>
+
+<br>
+              <div class="form-group col-12">
+                <label for="exampleInputPassword1">Nombre de usuario</label>
+                <input type="text" class="form-control" ng-model="vm.nombreUsuario" value=""  aria-describedby="basic-addon1" autocomplete="off">
+              </div>
+<br>
+              <div class="form-group col-12">
+                <label for="exampleInputPassword1">Contraseña</label>
+                <input type="password" class="form-control" ng-model="vm.password" value="" aria-describedby="basic-addon1" autocomplete="new-password">
+              </div>
+
+<br>
+              
+              <div class="d-grid gap-2">
+                <button type="button" class="btn boton text-white" ng-click="vm.registrarUsuario()">Registrarme</button>
+              </div>
+
+<br>
+            </div>
+
+
+          </div>

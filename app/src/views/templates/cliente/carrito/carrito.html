@@ -1,0 +1,118 @@
+
+    <div class="row">
+        <div class="col-6">
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+              <div class="card card-body">
+
+                <div>
+                    <input type="datetime" ng-model="lista.fecha" required>
+                    <button type="button" class="btn btn-success" ng-model="fecha_detalle"
+                    ng-click="lista.DetalleCompra()">Enviar</button>
+                </div>
+
+                <table class="table table-responsive" style="border-color: brown;">
+                  <thead class="bg-white">
+                      <tr>
+                        <td>Id</td>
+                        <td>Producto</td>
+                          <td>Precio</td>
+                          <td>Cantidad</td>
+                          <td>Sub total</td>
+                          <td class="btn btn-danger text-dark">Accion</td>
+  
+                      </tr>
+                  </thead>
+                  <tbody class="bg-white">
+                      <tr ng-repeat="compra in lista.carrito" ng-if="lista.carrito.length >= 1">
+  
+                          <td class="text-dark">{{compra.id}}</td>
+                          <td class="text-dark">{{compra.nombre}}</td>
+                          <td class="text-dark">${{compra.precio}}</td>
+                          <td class="text-dark">{{compra.cantidad}}</td>
+                          <td class="text-dark">${{compra.total}}</td>
+                          <td class="text-dark"> <button class="btn btn-danger" ng-click="lista.EliminarCompra(compra.id)">Eliminar</button> </td>
+                      </tr>
+  
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+    
+<div ng-controller="carritoController as lista">
+
+  <div class="container">
+      <div>
+          <!-- <input type="number" ng-model="idDeta" value="{{lista.idDeta}}" readonly>   -->
+          <input type="datetime" ng-model="lista.fecha" required>
+          <button type="button" class="btn btn-success" ng-model="fecha_detalle"
+              ng-click="lista.DetalleCompra()">Enviar</button>
+
+      </div>
+
+      <div class="input-group">
+          <!-- <input type="number" ng-model="idDetaCompra" value="{{lista.idDetaCompra}}" readonly>   -->
+          <select name="" id="" ng-model="lista.productoSeleccionado" class="bg-white input-group-text">
+              <option ng-repeat="producto in lista.productos" value="{{producto.id}}">{{producto.nombre}}</option>
+          </select>
+
+          <input type="number" ng-model="lista.cantidad" class="bg-white input-group-text"></input>
+
+          <div>
+              <button type="button" class="btn in btn-outline" ng-click="lista.addCarrito()"
+                  ng-disabled="!lista.validar" ng-model="lista.validar">
+                  <i class="fas fa-shopping-cart"></i>
+              </button>
+          </div>
+      </div>
+
+
+
+      <br>
+      <table>
+          <table class="table table-responsive" style="border-color: brown;">
+              <thead class="bg-white">
+                  <tr>
+                      <td>Id</td>
+                      <td>Producto</td>
+                      <td>Precio</td>
+                      <td>Cantidad</td>
+                      <td>Sub total</td>
+                      <td>Eliminar</td>
+
+                  </tr>
+              </thead>
+              <tbody class="bg-white">
+                  <tr ng-repeat="compra in lista.carrito" ng-if="lista.carrito.length >= 1">
+
+                      <td class="text-dark">{{compra.id}}</td>
+                      <td class="text-dark">{{compra.nombre}}</td>
+                      <td class="text-dark">${{compra.precio}}</td>
+                      <td class="text-dark">{{compra.cantidad}}</td>
+                      <td class="text-dark">${{compra.total}}</td>
+                      <td class="text-dark"> <button class="btn btn-danger" ng-click="lista.EliminarCompra(compra.id)">Eliminar</button> </td>
+                  </tr>
+
+              </tbody>
+
+              <th class="bg-primary "><span class="text-white">Total: &nbsp; ${{lista.getTotalCarrito()}} </span></th>
+
+          </table>
+       
+        
+          <button type="button" class="btn btn-success" ng-click="lista.TerminarCompra()"
+              ng-disabled="!lista.btnFinalizar">
+              Finalizar compra
+          </button>
+
+  </div>
+</div>
+
+<br>
+
+
+
